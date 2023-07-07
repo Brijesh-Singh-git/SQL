@@ -1,0 +1,228 @@
+DBMS ---> Data can be stored in the form of Tables (Old Tech)
+RDBMS (Relational Database Management Sys) ---> Latest Technology 
+
+What is Database? ---> Data Storage Area
+
+In ordere to update, delete or retriving the data we need to communicate with the Database, for this we use SQL Language.
+
+
+Database Components:- 
+
+1) Client ---> We can send SQL Commands using client software.
+2) Server ---> Data is actually stored in the Database Server (Remote Machines)
+
+Types of client:- 
+	1) Graphical Mode(GUI)
+	2) CLI (Command line Interface) 
+	
+Example:- 
+
+IF we install ORacle Database ----> SQLDeveloper (GUI)
+									SQLPlus (CLI)
+									Toad, Squirell, Aquadata studio  (3rd party client) 
+
+MySQL -----> MySQLWorkbench(GUI client)
+			 MySQL CommandLineTool (CLI client) 
+			 Toad, Squirell, Aquadata (3rd party client)
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+SQL Command Line command 
+
+- show databases;
+- use world;
+-show tables;
+-select * from country;
+
+------------------------------------------------------------------------------------------------------------------------------
+SQL COMMANDS 
+
+1) DDL (Data Definition Language) 
+	- CREATE, ALTER, DROP, TRUNCATE, RENAME 
+
+2) DML (Data Manipulation Language)
+	- INSERT, UPDATE, DELETE 
+	
+3) DRL/DQL (Data Retrieval/Data Query Language)
+	- SELECT
+
+4) TCL (Transaction Control Language)
+	- COMMIT, ROLLBACK, SAVEPOINT
+	
+5) DCL (Data Control Language) -- mainly used by the administrators
+	- GRANT, REVOKE
+	
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 1 ---> The very first thing is to Create a Database and Schemas 
+
+- CREATE DATABASE employee;
+- DROP DATABASE employee;   
+
+
+- CREATE SCHEMA employee;
+- DROP SCHEMA employee;
+
+
+- CREATE DATABASE IF NOT EXISTS employee; ( this is used when we have lot of databases and check if already the database is there or not, 
+											if not it will create)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 2 ---> The second thing is to Create a Table. 
+
+syntax:-  CREATE TABLE  <<Table Name>>(col1 datatype, col2 datatype, col3 datatype....);
+
+example:- CREATE TABLE STUDENT (SNO INT(5), SNAME VARCHAR(15), MARKS INT(3));  
+
+
+DESCRIBE STUDENT ---> will shaow the Grid view of table created with the datatype alotted
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 3 ---> The next thing is to Insert the values into Table. 
+
+syntax:- INSERT INTO <<Table Name>> VALUES (Val1, val2, val3....);
+
+example:- INSERT INTO STUDENT VALUES(101, 'Rohan', 67);
+		  INSERT INTO STUDENT (SNAME, SNO , MARKS) VALUES('Deepika' ,102,89) 
+		  INSERT INTO STUDENT VALUES(103, 'Aman', NULL);
+		 
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 4 ---> How to select rows from the Table? 
+
+	SELECT film_id, description, release_year, length, rating FROM film;
+	SELECT film_id FID, description DES, release_year REL, length LEN , rating RAT FROM film  ( Using Alias)
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 5 ---> WHERE & DISTINCT Clause
+
+WHERE ---> It is used for selecting the rows based on condition.
+
+DISTINCT ---> It is used to filter out the duplicate entries from the DATABASE
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Step 6 ----> Logical Operators 
+
+If we want to check more than 1 condition then we go for the operators
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Step 7 -----> BETWEEN, Not BETWEEN & IN , Not IN Operators 
+
+BETWEEN ---> Used to display the rows which is following in the range values 
+
+IN ----> IN Operator returns the rows when the values are matching in the list 
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Step 8 -----> Pattern Matching Operators
+
+% ---> Many characters
+_ ---> Single Characters 
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+		DDL (Data Definition Language)  Commands 
+		
+1) Create ---> USe to create database obejcts 
+2) Alter---> Adding new colummns, dropping or modifiying the exisitng column
+
+	ALTER have many operations:- 
+		- Add a new column
+		- Drop a column
+		- Modify exisiting column
+		- Rename the column 
+
+Inserted some data in the table , whenver we disconenct the database the insert data will go in order to save it permentaly we use the COMMIT command 
+after inserting thr values.
+
+In MySQL we can use autocommit=0  in order to save the data everytime.
+
+
+
+3) DROP  ---> It will completyly drop the table i.e data, structure , table defination etc.
+
+4) TRUNCATE ----> It will also delete the table data but the table structure and its properties are present 
+
+5) DELETE (DML) -----> It will also delte the table data, table structre is present adn we can ROLL over the data again. by ROLLBACK command in DML operations.
+
+
+ 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+	BUILT-in Functions in MySQL 
+
+1) String Functions
+2) Numeric
+3) DATA
+4) Aggregrate Functions ---> Operate on all of the data types and produce summarized result sets. 
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+	GROUP BY , HAVING  & ORDER BY Clause 
+	
+- The GROUP BY Clause groups records ito summary rows.
+- Group BY returns one records for each groups
+- GROUP BY typically also involves the aggerate like SUM, AVG, MIN, MAX 
+
+GROUP BY is followed by HAVING Clause
+
+
+	WHERE ----> GROUP BY -----> HAVING  ----> ORDER BY 
+	
+
+ORDER BY ---> It is used to arrange the rows in the table
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+	SET Operators 
+	
+UNION  ---> In UNION it will print only the data that is distinct i.e no duplication 
+	
+	The UNION Operator is used to combine the result-set of two or more SELECT statements
+	Each SELECT statement with UNION must have the same number of columns 
+	The Columns must also have similar data types
+	The columns in each SELECT Statement must also be in the same order
+
+UNION ALL --> In UNION ALL it will print all the data whether it is having duplication or not
+
+
+INTERSECT 
+MINUS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
